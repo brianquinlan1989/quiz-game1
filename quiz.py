@@ -12,6 +12,23 @@ def show_menu():
     return option
 
 
+def ask_questions():
+    with open("questions.txt") as f:
+        questions = f.read().split("\n")[:-1]
+        
+    score = 0
+    
+    for q in questions:
+        question, answer = q.split("|")
+        guess = input(question)
+        
+        if guess == answer:
+            score += 1
+            
+    print("You scored {0}".format(score) + " out of " + str(len(questions)))
+        
+    
+
 def add_a_question():
      question = input("Enter a question: ")
      answer = input("Answer: ")
@@ -25,7 +42,7 @@ while True:
     option = show_menu()
     
     if option == "1":
-        print("you picked run quiz")
+        ask_questions()
         
     if option == "2":
        add_a_question()
