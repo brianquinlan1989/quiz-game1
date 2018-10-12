@@ -20,9 +20,10 @@ def ask_questions():
     
     for q in questions:
         question, answer = q.split("|")
-        guess = input(question)
+        guess = input (question)
         
-        if guess == answer:
+        
+        if guess.casefold() == answer.casefold():
             score += 1
             
     print("You scored {0}".format(score) + " out of " + str(len(questions)))
