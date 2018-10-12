@@ -1,3 +1,5 @@
+import sys
+
 def show_menu():
     print("----------")
     print("Quiz Game")
@@ -38,15 +40,23 @@ def add_a_question():
          line = question + "|" + answer + "\n"
          f.write(line)
 
-
-while True:
-    option = show_menu()
+def main():
     
-    if option == "1":
-        ask_questions()
+    while True:
+        option = show_menu()
         
-    if option == "2":
-       add_a_question()
-    
-    if option == "3":
-        break
+        if option == "1":
+            ask_questions()
+            
+        if option == "2":
+           add_a_question()
+        
+        if option == "3":
+            break
+        
+if sys.argv[1] == "menu":
+    main()
+elif sys.argv[1] == "ask":
+    ask_questions()
+elif sys.argv[1] == "add":
+    add_a_question()
